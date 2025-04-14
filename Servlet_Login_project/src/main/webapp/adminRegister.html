@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create an Account</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .register-container {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 40px;
+      width: 400px;
+      color: white;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .register-container h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 2rem;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    .register-container input[type="text"],
+    .register-container input[type="number"],
+    .register-container input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .register-container input::placeholder {
+      color: #000000;
+    }
+
+    .register-container input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background: #00b894;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .register-container input[type="submit"]:hover {
+      background: #019875;
+    }
+
+    @media (max-width: 480px) {
+      .register-container {
+        width: 90%;
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <h1>Create an Account</h1>
+    <form action="register" method="post">
+      <input type="text" name="adname" placeholder="Enter your full name" required><br>
+      <input type="text" name="admail" placeholder="Enter your email address" required><br>
+      <input type="number" name="adphno" placeholder="Enter your phone number" required><br>
+      <input type="password" name="adpass" placeholder="Create a password" required><br>
+      <input type="password" name="adconfpass" placeholder="Confirm your password" required><br>
+      <input type="submit" value="Register">
+    </form>
+  </div>
+</body>
+</html>
