@@ -13,7 +13,10 @@
 	String ms = (String) request.getAttribute("msg");
 	out.println(ms);
 	%>
+	<span>
 	<a href="product.html">Add Product</a>
 	<a href="viewAllProducts">View All Products</a>
+	<a href="logout">Logout</a>
+	</span>
 </body>
 </html>

@@ -1,4 +1,3 @@
-<%@page import="test.AdminBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,16 +8,11 @@
 </head>
 <body>
 <%
-AdminBean bean=(AdminBean)application.getAttribute("bean");
-out.println("Login Successfull...");
-
-out.println("Welcome :"+bean.getAdname());
-
+String msg=(String)request.getAttribute("msg");
+out.println(msg);
 %>
-<span>
 <a href="product.html">Add Product</a>
 <a href="viewAllProducts">View All Products</a>
-<a href="logout">Logout</a>
-</span>
+<a href="logout">Logout</a>s
 </body>
 </html>

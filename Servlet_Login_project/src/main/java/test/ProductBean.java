@@ -25,6 +25,11 @@ public class ProductBean implements Serializable
 		return pname;
 	}
 
+	@Override
+	public String toString() {
+		return "ProductBean [pcode=" + pcode + ", pname=" + pname + ", pprice=" + pprice + ", pstock=" + pstock + "]";
+	}
+
 	public void setPname(String pname) {
 		this.pname = pname;
 	}

@@ -20,7 +20,7 @@ public class AdminLoginServlet extends HttpServlet
 		AdminBean adbean = new AdminLoginDAO().login(adname, adpass);
 		System.out.println(adbean);
 		ServletContext ctx=req.getServletContext();
-		
+		res.setContentType("text/html");
 		if(adbean!=null)
 		{
 			ctx.setAttribute("bean", adbean);

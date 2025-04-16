@@ -3,6 +3,7 @@ package test;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,9 +16,11 @@ public class viewAllProductsServlet extends HttpServlet
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
 		ArrayList<ProductBean> list = new viewAllProductsDAO().retrieve();
+		ServletContext sct = req.getServletContext();
+		
 		if(list!=null)
 		{
-			req.setAttribute("bean", list);
+			sct.setAttribute("list", list);
 			req.getRequestDispatcher("ViewAllProductsJSP.jsp").forward(req, res);
 		}
 	}

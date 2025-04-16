@@ -1,4 +1,4 @@
-<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="test.*"
@@ -11,7 +11,9 @@
 </head>
 <body>
 <%
-ArrayList<ProductBean> list=(ArrayList<ProductBean>)request.getAttribute("bean");
+
+ArrayList<ProductBean> list=(ArrayList<ProductBean>)application.getAttribute("list");
+Iterator<ProductBean> it=list.iterator();
 %>
 
 <table border="2px" style="width: 60%; margin-left:200px;">
@@ -21,23 +23,34 @@ ArrayList<ProductBean> list=(ArrayList<ProductBean>)request.getAttribute("bean")
 			<th>Name</th>
 			<th>Price</th>
 			<th>Stock</th>
+			<th>Action</th>
 		</tr>
 	</thead>
 	
 	<tbody>
-		<%for(ProductBean p:list)
-		{ %>
+		<%
+		while(it.hasNext())
+		{
+			 ProductBean p=(ProductBean)it.next();
+			 out.print("<tr> <td> "+p.getPcode()); out.print("</td>"); 
+			 out.print("<td>"+p.getPname());  out.print("</td>");
+			 out.print("<td>"+p.getPprice());  out.print("</td>");
+			 out.print("<td>"+p.getPstock());  out.print("</td>");
+			 out.print("<td>");
+			
+			%>
+			
+			<a href="EditProductServlet?pcode=<%= p.getPcode()%>">Edit</a>
+			<a href="deleteProductServlet?pcode=<%= p.getPcode() %>">Delete</a>
+			
+			<%
+		}
+		%>
 		
-			<tr>
-				<td><%=p.getPcode() %> </td>
-				<td><%=p.getPname() %> </td>
-				<td><%=p.getPprice() %> </td>
-				<td><%=p.getPstock() %> </td>
-			</tr>
-		<%}%>
 		
 	</tbody>
 </table>
-<a href="product.html">Add Product</a>
+
+
 </body>
 </html>

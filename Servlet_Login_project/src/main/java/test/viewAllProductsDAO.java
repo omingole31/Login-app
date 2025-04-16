@@ -19,6 +19,7 @@ public class viewAllProductsDAO
 			ResultSet rs = ps.executeQuery();
 			while(rs.next())
 			{
+				
 				pb=new ProductBean();
 				pb.setPcode(rs.getString(1));
 				pb.setPname(rs.getString(2));
