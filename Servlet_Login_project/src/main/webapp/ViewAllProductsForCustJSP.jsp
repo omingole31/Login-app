@@ -1,7 +1,7 @@
-<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="test.*"
+    import="java.util.*"
     %>
 <!DOCTYPE html>
 <html>
@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <%
 
 ArrayList<ProductBean> list=(ArrayList<ProductBean>)application.getAttribute("list");
@@ -40,19 +41,17 @@ Iterator<ProductBean> it=list.iterator();
 			
 			%>
 			
-			<a href="EditProductServlet?pcode=<%= p.getPcode()%>">Edit</a>
-			<a href="deleteProductServlet?pcode=<%= p.getPcode() %>">Delete</a>
+			<a href="Buy?pcode=<%= p.getPcode()%>">Buy</a>
+			
 			
 			<%
 		}
 		%>
 		
 		
-		
 	</tbody>
-	
 </table>
-<a href="Logout">Logout</a>
+
 
 
 </body>
