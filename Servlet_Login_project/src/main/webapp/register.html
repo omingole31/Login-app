@@ -2,18 +2,81 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Customer Registration</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .form-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 350px;
+        box-sizing: border-box; /* Ensures padding is included in width calculations */
+        overflow: hidden; /* Prevents content from spilling out */
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 15px;
+    }
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #555;
+    }
+    input[type="text"], input[type="number"], input[type="submit"] {
+        width: calc(100% - 20px); /* Adjusts to fit within the container */
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box; /* Includes padding in the width */
+    }
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
 </head>
 <body>
-<h2>Register</h2>
-<form action="custregister" method="post">
-Username:<input type="text" name="cuname"><br>
-Password:<input type="text" name="cpass"><br>
-First Name:<input type="text" name="cfname"><br>
-Last Name:<input type="text" name="clname"><br>
-Gmail Id:<input type="text" name="cmail"><br>
-Phone No:<input type="number" name="cphno"><br>
-<input type="submit" value="Register">
-</form>
+<div class="form-container">
+    <h2>Register</h2>
+    <form action="custregister" method="post">
+        <label for="cuname">Username:</label>
+        <input type="text" id="cuname" name="cuname" required>
+        
+        <label for="cpass">Password:</label>
+        <input type="text" id="cpass" name="cpass" required>
+        
+        <label for="cfname">First Name:</label>
+        <input type="text" id="cfname" name="cfname" required>
+        
+        <label for="clname">Last Name:</label>
+        <input type="text" id="clname" name="clname">
+        
+        <label for="cmail">Gmail ID:</label>
+        <input type="text" id="cmail" name="cmail" required>
+        
+        <label for="cphno">Phone Number:</label>
+        <input type="number" id="cphno" name="cphno" required>
+        
+        <input type="submit" value="Register">
+    </form>
+</div>
 </body>
 </html>

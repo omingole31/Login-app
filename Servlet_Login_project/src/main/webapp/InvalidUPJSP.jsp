@@ -8,7 +8,7 @@
 </head>
 <body>
 <%
-String msg=(String)application.getAttribute("msg");
+String msg=(String)session.getAttribute("msg");
 out.println(msg);
 
 %>

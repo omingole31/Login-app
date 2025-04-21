@@ -15,7 +15,9 @@ public class BuyFinalProductServlet extends HttpServlet
 	{
 		int pstock=Integer.parseInt(req.getParameter("pstock"));
 		String pcode=req.getParameter("pcode");
+	
 		int k = new BuyProductDAO().buy(pcode, pstock);
+	//	System.out.println(k);
 		if(k>0)
 		{
 			req.setAttribute("msg", "Product Successfully purchased!!!");

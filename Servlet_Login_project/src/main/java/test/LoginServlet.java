@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 @WebServlet("/customer")
 public class LoginServlet extends HttpServlet
 {
@@ -18,15 +19,15 @@ public class LoginServlet extends HttpServlet
 		String cpass=req.getParameter("cpass");
 		CustomerBean cb = new LoginCustDAO().search(cuname, cpass);
 		res.setContentType("text/html");
-		ServletContext ctx=req.getServletContext();
+		HttpSession hp = req.getSession();
 		if(cb!=null)
 		{
-			ctx.setAttribute("bean", cb);
+			hp.setAttribute("bean", cb);
 			req.getRequestDispatcher("CustLoginJSP.jsp").forward(req, res);
 		}
 		else
 		{
-			req.setAttribute("msg", "Invalid Username and Password");
+			hp.setAttribute("msg", "Invalid Username and Password");
 			req.getRequestDispatcher("InvalidUPJSP.jsp").forward(req, res);
 		}
 	}

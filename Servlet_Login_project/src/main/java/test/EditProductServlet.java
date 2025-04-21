@@ -23,7 +23,7 @@ public class EditProductServlet extends HttpServlet
 		if(pb!=null)
 		{
 			req.setAttribute("bean", pb);
-			req.getRequestDispatcher("BuyJSP.jsp").forward(req, resp);
+			req.getRequestDispatcher("editProductJSP.jsp").forward(req, resp);
 		}
 		else
 		{
