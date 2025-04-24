@@ -10,7 +10,7 @@ public class editDAO
 	 ProductBean pb=null;
 	public ProductBean edit(String pcode)
 	{
-		System.out.println("DAo recieved pcode:"+pcode);
+		//System.out.println("DAo recieved pcode:"+pcode);
 		try 
 		{
 			Connection con = DBConnection.getcon();

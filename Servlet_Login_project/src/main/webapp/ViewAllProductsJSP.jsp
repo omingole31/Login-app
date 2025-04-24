@@ -114,6 +114,6 @@
     </tbody>
   </table>
 
-  <a class="logout-link" href="Logout">Logout</a>
+  <a class="logout-link" href="logout">Logout</a>
 </body>
 </html>

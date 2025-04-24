@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 @WebServlet("/Buy")
 public class BuyProductServlet extends HttpServlet
 {
@@ -22,10 +23,18 @@ public class BuyProductServlet extends HttpServlet
 //			req.setAttribute("msg", "Product Successfully purchased!!!");
 //			req.getRequestDispatcher("BuyJSP.jsp").forward(req, res);
 //		}
+		HttpSession session = req.getSession();
+		if(session==null ||session.getAttribute("bean")==null)
+		{
+			res.sendRedirect("CustLoginJSP.jsp");
+			return;
+		}
 		ProductBean pb = new editDAO().edit(pcode);
+		//System.out.println(pb);
 		if(pb!=null)
 		{
-			req.setAttribute("bean", pb);
+			session.setAttribute("pb", pb);
+			req.setAttribute("pb", pb);
 			req.getRequestDispatcher("BuyJSP.jsp").forward(req, res);
 		}
 		else
